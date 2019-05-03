@@ -35,8 +35,32 @@ class AnswersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $answer = new Answer;
+        $answer->username = auth()->user();
+        $answer->a1 = $request->q1;
+        $answer->a2 = $request->q2;
+        $answer->a3 = $request->q3;
+        $answer->a4 = $request->q4;
+        $answer->a5 = $request->q5;
+        $answer->a6 = $request->q6;
+        $answer->a7 = $request->q7;
+        $answer->a8 = $request->q8;
+        $answer->a9 = $request->q9;
+        $answer->a10 = $request->q10;
+        $answer->a11 = $request->q11;
+        $answer->a12 = $request->q12;
+        $answer->a13 = $request->q13;
+        $answer->a14 = $request->q14;
+        $answer->a15 = $request->q15;
+        $answer->a16 = $request->q16;
+        $answer->a17 = $request->q17;
+        $answer->a18 = $request->q18;
+        $answer->a19 = $request->q19;
+        $answer->a20 = $request->q20;
+        $answer->save();
+        return redirect('/questions');
     }
+  
 
     /**
      * Display the specified resource.
