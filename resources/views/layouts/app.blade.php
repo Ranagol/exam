@@ -40,6 +40,7 @@
                             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                                 <div class="navbar-nav">
                                     <a class="nav-item nav-link" href="/questions/create">Create questions and answers</a>
+                                    <a class="nav-item nav-link" href="/questions">Questions</a>
                                     <a class="nav-item nav-link" href="#">The exam</a> 
                                     <a class="nav-item nav-link" href="#">Results</a>                                    
                                 </div>
