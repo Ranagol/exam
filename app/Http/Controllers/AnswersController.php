@@ -14,7 +14,8 @@ class AnswersController extends Controller
      */
     public function index()
     {
-        //
+        $answers = Answer::all();
+        return view('answers.index', compact('answers'));
     }
 
     /**
@@ -36,7 +37,7 @@ class AnswersController extends Controller
     public function store(Request $request)
     {
         $answer = new Answer;
-        $answer->username = auth()->user();
+        $answer->username = auth()->user()->name;//this here is under testing, I am not sure it will work
         $answer->a1 = $request->q1;
         $answer->a2 = $request->q2;
         $answer->a3 = $request->q3;
