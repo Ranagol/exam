@@ -43,9 +43,8 @@
                                     <a class="nav-item nav-link" href="/startprofessor">Startprofessor</a>
                                     <a class="nav-item nav-link" href="/startstudent">Startstudent</a>
                                     <a class="nav-item nav-link" href="/questions/create">Create questions</a>
-                                    <a class="nav-item nav-link" href="/questions">Questions</a>
+                                    <a class="nav-item nav-link" href="/questions">Exam</a>
                                     <a class="nav-item nav-link" href="/answers">Answers</a>
-                                    <a class="nav-item nav-link" href="#">The exam</a> 
                                     <a class="nav-item nav-link" href="#">Results</a>                                    
                                 </div>
                             </div>
