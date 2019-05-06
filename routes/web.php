@@ -15,6 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/startprofessor', function () {
+    return view('startprofessor');
+});
+
+Route::get('/startstudent', function () {
+    return view('startstudent');
+});
+
+
 Route::resource('questions', 'QuestionsController');
 
 Route::resource('answers', 'AnswersController');

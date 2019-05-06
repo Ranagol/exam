@@ -9,9 +9,9 @@
         <ul>
             @foreach($questions as $question)
                 <strong>Question # {{$question->id}} {{$question->question}}</strong><br>
-                <input type="radio" name="q{{$question->id}}" value="a{{$question->id}}"> {{$question->a_answer}}<br>
-                <input type="radio" name="q{{$question->id}}" value="b{{$question->id}}"> {{$question->b_answer}}<br>
-                <input type="radio" name="q{{$question->id}}" value="c{{$question->id}}"> {{$question->c_answer}}<br>
+                <input type="radio" name="q{{$question->id}}" value="{{$question->id}}a" required> {{$question->a_answer}}<br>
+                <input type="radio" name="q{{$question->id}}" value="{{$question->id}}b" required> {{$question->b_answer}}<br>
+                <input type="radio" name="q{{$question->id}}" value="{{$question->id}}c" required> {{$question->c_answer}}<br>
                 <br>
             @endforeach
             <input type="submit" value="Submit">
