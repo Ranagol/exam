@@ -47,7 +47,6 @@ class QuestionsController extends Controller
         $question->a_answer = $request->a_answer;
         $question->b_answer = $request->b_answer;
         $question->c_answer = $request->c_answer;
-        $question->correct_answer = $request->correct_answer;
         $question->save();
         return redirect('/questions');
     }
@@ -60,7 +59,7 @@ class QuestionsController extends Controller
      */
     public function show(Question $question)
     {
-        //
+        return view('questions/show', compact('question'));
     }
 
     /**
@@ -71,7 +70,7 @@ class QuestionsController extends Controller
      */
     public function edit(Question $question)
     {
-        //
+        return view('questions.edit', compact('question'));
     }
 
     /**
@@ -83,7 +82,15 @@ class QuestionsController extends Controller
      */
     public function update(Request $request, Question $question)
     {
-        //
+        //$post->title = request('title');
+        //$post->content = request('content');
+        //$post->save();
+        $question->question = $request->question;
+        $question->a_answer = $request->a_answer;
+        $question->b_answer = $request->b_answer;
+        $question->c_answer = $request->c_answer;
+        $question->save();
+        return redirect('/questions/create');
     }
 
     /**
