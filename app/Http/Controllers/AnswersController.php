@@ -59,7 +59,7 @@ class AnswersController extends Controller
         $answer->a19 = $request->q19;
         $answer->a20 = $request->q20;
         $answer->save();
-        return redirect('/questions');
+        return redirect('/answers');
     }
   
 

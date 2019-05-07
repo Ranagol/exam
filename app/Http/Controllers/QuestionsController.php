@@ -28,10 +28,15 @@ class QuestionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create()//this needs authorization
     {
-        $questions = Question::all();
-        return view('questions.create', compact('questions'));
+        if (auth()->id() == 1) {
+            $questions = Question::all();
+            return view('questions.create', compact('questions'));
+        } else {
+            echo "Sorry, this site is only for the admin. Your exam is here: " . '<a href="/questions">Do the exam!</a>';
+        }
+        
     }
 
     /**

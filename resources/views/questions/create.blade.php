@@ -3,9 +3,10 @@
 @section('title', 'exam')
 
 @section('content')
+@include(‘errors’)
 
 <div class="container card pt-3">
-    <h3>List of current questions and answers</h3>
+    <h3>List of current exam questions and answers</h3>
     <p>This is the list of the current questions. You can also edit these question by clicking on the link. This list is  just an overview of the current questions, and it can't be used for exam purposes.</p>
 
     <ul>

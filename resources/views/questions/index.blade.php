@@ -3,6 +3,7 @@
 @section('title', 'exam')
 
 @section('content')
+@include(‘errors’)
 <div class="container card pt-3">
     <h2>The exam</h2>
     <form method="POST" action="/answers">
@@ -15,7 +16,7 @@
                 <input type="radio" name="q{{$question->id}}" value="{{$question->id}}c" required> {{$question->c_answer}}<br>
                 <br>
             @endforeach
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit"><!--THIS IS THE BUTTON HERE -->
         </ul>
     </form>
     

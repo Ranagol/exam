@@ -19,6 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
@@ -44,8 +45,7 @@
                                     <a class="nav-item nav-link" href="/startstudent">Startstudent</a>
                                     <a class="nav-item nav-link" href="/questions/create">Create questions</a>
                                     <a class="nav-item nav-link" href="/questions">Exam</a>
-                                    <a class="nav-item nav-link" href="/answers">Answers</a>
-                                    <a class="nav-item nav-link" href="#">Results</a>                                    
+                                    <a class="nav-item nav-link" href="/answers">Exam results</a>             
                                 </div>
                             </div>
                         </nav>

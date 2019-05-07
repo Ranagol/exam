@@ -3,12 +3,14 @@
 @section('title', 'exam')
 
 @section('content')
+@include(‘errors’)
 <div class="container">
-    <h1>Testing the answer analyzing tool</h1>
+    <h1>Exam results</h1>
 
     <?php
         //DATA FROM DB IS PLACED INTO ARRAYS
         foreach ($answers as $answer) {//the sub-arrays are called by the id number, because later we will need this number-name for crucial iterating purposes. The $superarray contains all the sub-arrays.
+            $superarray[$answer->id]['username'] = $answer->username;
             
             if ($answer->a1 !== null) {
                 $superarray[$answer->id]['answ1'] = $answer->a1;
@@ -82,7 +84,7 @@
             $x = $i + 1;         
             $compare = array_intersect($superarray[1], $superarray[$x]);//we are comparing all the answers with the right answers here
             //echo 'Superarray[' . $x . '] has ' . count($compare) . ' correct answers.' . '<br>';
-            $correctAnswers[$x] = count($compare);//here we are defining the current number of questions.           
+            $correctAnswers[$x] = count($compare) - 1;//here we are defining the current number of questions.           
         }
 
         //var_dump($correctAnswers);
@@ -92,10 +94,12 @@
 
     ?>
 
+    <p>Number of all exam questions: {{$numberOfQuestions}} </p>
     <table class="table">
         <tr>
             <th>username</th>
             <th>Correct answers</th>
+            <th>Wrong answers</th>
             <th>Score (0-100)</th>
             <th>Status</th>
         </tr>
@@ -105,19 +109,61 @@
             <tr>
                 <td>{{$answer->username}}</td>
                 <td>{{$correctAnswers[$answer->id]}}</td><!--number of correct answers-->
-                <td>{{100*$correctAnswers[$answer->id]/$numberOfQuestions}}</td><!--% of correct answers-->
+                <td>{{$numberOfQuestions - $correctAnswers[$answer->id] }}</td><!--wrong answers-->
+                <td>{{100*$correctAnswers[$answer->id]/$numberOfQuestions}}</td><!--score (from 1 till 100)-->           
                 <td><!--PASSED/FAILED STATUS-->
                     <?php
-                    if (100*$correctAnswers[$answer->id]/$numberOfQuestions < 50) {
-                        echo 'FAILED';
-                    } else {
-                        echo 'PASSED';
-                    }
+                        if (100*$correctAnswers[$answer->id]/$numberOfQuestions < 50) {
+                            echo 'FAILED';
+                        } else {
+                            echo 'PASSED';
+                        }
                     ?>                    
                 </td>
             </tr>            
         @endforeach
-    </table>    
+    </table>
+
+    <?php
+        //var_dump($superarray);
+    ?>
+    
+    <h1>Exam details</h1>
+    <table class="table">
+        <tr><!--DYNAMIC TABLE HEADER-->
+            
+            <?php
+                foreach ($superarray[1] as $key => $value) {
+                echo '<th>' . $key . '</th>';
+                }
+            ?>
+        </tr>
+        <tr><!--DYNAMIC TABLE BODY-->
+            
+            <?php
+                foreach ($superarray as $subarray) {
+                    echo '<tr>';
+                                                 
+                        foreach ($subarray as $key => $value) {
+                           echo '<td>' . $value . '</td>'; 
+                        }
+                    echo '</tr>';
+                }
+            ?>
+        </tr>
+        
+   
+        
+        
+        
+        
+    </table>
+
+
+
+
+
+
 </div>
 
 @endsection
