@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Answer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class AnswersController extends Controller
 {
@@ -106,6 +108,9 @@ class AnswersController extends Controller
     public function destroy(Answer $answer)
     {
         \App\Answer::query()->delete();
+        //here we have to tell sql that he has to reset the id numbers
+        //ALTER TABLE answers AUTO_INCREMENT = 1
+        DB::statement('ALTER TABLE answers AUTO_INCREMENT = 1');
         return redirect('answers');
     }
 }

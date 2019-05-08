@@ -80,7 +80,7 @@
         }
 
         if (!isset($superarray)) {
-            die('There are no results at this moment. All the exam answers are deleted.');
+            die('There are no results at this moment. All the exam answers are deleted. ');
         }
 
         //echo var_dump($superarray);//This $superarray contains all the sub-arrays.
