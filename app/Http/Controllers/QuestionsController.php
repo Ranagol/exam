@@ -106,6 +106,7 @@ class QuestionsController extends Controller
      */
     public function destroy(Question $question)
     {
-        //
+        \App\Question::query()->delete();
+        return redirect('questions/create');
     }
 }

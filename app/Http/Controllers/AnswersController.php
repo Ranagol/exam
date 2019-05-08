@@ -105,6 +105,7 @@ class AnswersController extends Controller
      */
     public function destroy(Answer $answer)
     {
-        //
+        \App\Answer::query()->delete();
+        return redirect('answers');
     }
 }

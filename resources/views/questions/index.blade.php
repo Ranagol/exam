@@ -3,7 +3,7 @@
 @section('title', 'exam')
 
 @section('content')
-@include(‘errors’)
+@include('errors')
 <div class="container card pt-3">
     <h2>The exam</h2>
     <form method="POST" action="/answers">

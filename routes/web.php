@@ -23,6 +23,9 @@ Route::get('/startstudent', function () {
     return view('startstudent');
 });
 
+Route::delete('/deleteanswers', 'AnswersController@destroy');
+
+Route::delete('/deletequestions', 'QuestionsController@destroy');
 
 Route::resource('questions', 'QuestionsController');
 

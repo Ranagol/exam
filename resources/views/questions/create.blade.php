@@ -3,7 +3,7 @@
 @section('title', 'exam')
 
 @section('content')
-@include(‘errors’)
+@include('errors')
 
 <div class="container card pt-3">
     <h3>List of current exam questions and answers</h3>
@@ -24,7 +24,7 @@
 
 
 
-<div class="container card pt-3">
+<div class="container card pt-3 pb-3">
     <h3>Add new questions and answers to the list</h3>
     <form method="POST" action="/questions">
         @csrf
@@ -52,6 +52,32 @@
         
     </form>
 </div>
+
+<div class="container card pt-3">
+    <h3>Creating a new exam</h3>
+    <p>When you want to create a new exam, with new questions and answers, first you need to delete the old exam questions and answers. </p>
+
+    <form method="POST" action="/deleteanswers">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger" name="submit" value="Submit">Delete all exam answers</button>
+    </form>
+
+    <br>
+
+    <form method="POST" action="/deletequestions">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger" name="submit" value="Submit">Delete all questions</button>
+    </form>
+
+    <p>Once you are done with deleting, you can start creating the new questions and answers with the from "Add new questions and answers to the list".</p>
+</div>
+
+
+
+
+
 
 
 @endsection

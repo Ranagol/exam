@@ -3,7 +3,7 @@
 @section('title', 'exam')
 
 @section('content')
-@include(‘errors’)
+@include('errors')
 <div class="container">
     <h1>Exam results</h1>
 
