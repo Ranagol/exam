@@ -5,7 +5,12 @@
 @section('content')
 @include('errors')
 <div class="container">
-    <h1>Exam results</h1>
+
+
+
+
+
+    <h1>Exam results</h1><!--------------EXAM RESULTS------------------------------------->
 
     <?php
         //DATA FROM DB IS PLACED INTO ARRAYS
@@ -74,23 +79,38 @@
             }
         }
 
+        if (!isset($superarray)) {
+            die('There are no results at this moment. All the exam answers are deleted.');
+        }
+
         //echo var_dump($superarray);//This $superarray contains all the sub-arrays.
         //echo var_dump($superarray[1]);//id 1 answers here
         //echo var_dump($superarray[2]);//id 2 answers here
         //echo var_dump($superarray[3]);//id 3 answers here
 
         //COMPARING STUDENT ANSWERS WITH THE CORRECT ANSWERS
+
+        
+        
         for ($i=0; $i < count($superarray); $i++) {
             $x = $i + 1;         
             $compare = array_intersect($superarray[1], $superarray[$x]);//we are comparing all the answers with the right answers here
             //echo 'Superarray[' . $x . '] has ' . count($compare) . ' correct answers.' . '<br>';
-            $correctAnswers[$x] = count($compare) - 1;//here we are defining the current number of questions.           
+            $correctAnswers[$x] = count($compare) - 1;//here we are defining the current number of questions.          
         }
-
         //var_dump($correctAnswers);
-       
+    
         $numberOfQuestions = $correctAnswers[1];//we need the biggest question id, in order to get the number of the questions. And we need this number for the percentage result. The amount of correct answers from the professor is = to the amount of questions.
         //echo $numberOfQuestions;
+
+
+
+
+
+        
+        
+        
+        
 
     ?>
 
@@ -150,20 +170,8 @@
                     echo '</tr>';
                 }
             ?>
-        </tr>
-        
-   
-        
-        
-        
-        
+        </tr>        
     </table>
-
-
-
-
-
-
 </div>
 
 @endsection
