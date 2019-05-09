@@ -61,7 +61,7 @@ class AnswersController extends Controller
         $answer->a19 = $request->q19;
         $answer->a20 = $request->q20;
         $answer->save();
-        return redirect('/answers');
+        return redirect('success');
     }
   
 
@@ -110,7 +110,8 @@ class AnswersController extends Controller
         \App\Answer::query()->delete();
         //here we have to tell sql that he has to reset the id numbers
         //ALTER TABLE answers AUTO_INCREMENT = 1
-        DB::statement('ALTER TABLE answers AUTO_INCREMENT = 1');
+        DB::statement('ALTER TABLE answers AUTO_INCREMENT = 1');//THIS IS THE GENERAL LARAVEL COMMAND TO SQL, WHEN THERE IS NO NEED FOR RETURN!!! BUT IN ORDER TO USE THIS GENERAL COMMAND, YOU MUST HAVE THESE TWO COPIED INTO YOUR CONTROLLER: use Illuminate\Support\Facades\DB; use App\Http\Controllers\Controller;
+
         return redirect('answers');
     }
 }

@@ -71,7 +71,7 @@
         <button type="submit" class="btn btn-danger" name="submit" value="Submit">Delete all questions</button>
     </form>
 
-    <p>Once you are done with deleting, you can start creating the new questions and answers with the from "Add new questions and answers to the list".</p>
+    <p>Once you are done with deleting, you can start creating the new questions with the form "Add new questions and answers to the list". When you are done with the questions, you need to go to the Exam page (just like a student) and answer CORRECTLY all questions. All the future student answers will be checked and scored based ond this template.</p>
 </div>
 
 

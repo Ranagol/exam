@@ -14,7 +14,13 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Welcome, <strong>{{auth()->user()->name}}</strong>. Now...
+                                       
+                    <ol>
+                        <li>Go to the "Exam" section and answer  all questions, by choosing one of the offered options.</li>
+                        <li>Once you are done with all the answers, click on "submit"</li>
+                    </ol>
+                    
                 </div>
             </div>
         </div>

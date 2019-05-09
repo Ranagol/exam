@@ -15,12 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/startprofessor', function () {
-    return view('startprofessor');
-});
-
-Route::get('/startstudent', function () {
-    return view('startstudent');
+Route::get('/success', function () {
+    return view('success');
 });
 
 Route::delete('/deleteanswers', 'AnswersController@destroy');
