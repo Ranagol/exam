@@ -14,10 +14,16 @@ class AnswersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index()//this needs authorization
     {
-        $answers = Answer::all();
-        return view('answers.index', compact('answers'));
+        if (auth()->id() == 1) {
+            $answers = Answer::all();
+            return view('answers.index', compact('answers'));            
+        } else {
+            echo "Sorry, this site is only for the admin. Your exam is here: " . '<a href="/questions">Do the exam!</a>';
+        }        
+        
+
     }
 
     /**
